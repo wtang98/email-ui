@@ -1,6 +1,9 @@
 .main{
     width: 100vw;
     // height: calc(100vh - 77px);
+    background-color: #FFFFFF;
+    display: flex;
+
     &__sideNav{
         width: 16.46vw;
     }

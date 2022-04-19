@@ -6,48 +6,48 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = exports.dummyTrash = void 0;
 var dummyTrash = [{
   'read': false,
-  'sender': '',
-  'email': '',
+  'sender': 'Susan Kessler',
+  'email': 'susan.kessler@yahoo.com',
   'subject': '',
   'message': '',
   'date': new Date('2022-01-01'),
   'picture': ''
 }, {
   'read': false,
-  'sender': '',
-  'email': '',
+  'sender': 'Dovie Schultz',
+  'email': 'dovie_schultz@yahoo.com',
   'subject': '',
   'message': '',
   'date': new Date('2022-01-01'),
   'picture': ''
 }, {
   'read': false,
-  'sender': '',
-  'email': '',
+  'sender': 'Camren Swaniawski',
+  'email': 'camren.swaniawski@yahoo.com',
   'subject': '',
   'message': '',
   'date': new Date('2022-01-01'),
   'picture': ''
 }, {
   'read': false,
-  'sender': '',
-  'email': '',
+  'sender': 'Jocelyn Wolf',
+  'email': 'jocelyn.wolf69@gmail.com',
   'subject': '',
   'message': '',
   'date': new Date('2022-01-01'),
   'picture': ''
 }, {
   'read': false,
-  'sender': '',
-  'email': '',
+  'sender': 'Amir Murphy',
+  'email': 'amir_murphy@yahoo.com',
   'subject': '',
   'message': '',
   'date': new Date('2022-01-01'),
   'picture': ''
 }, {
   'read': false,
-  'sender': '',
-  'email': '',
+  'sender': 'Leta Grimes',
+  'email': 'leta.grimes@yahoo.com',
   'subject': '',
   'message': '',
   'date': new Date('2022-01-01'),

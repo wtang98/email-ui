@@ -3,27 +3,28 @@ import './side-nav.scss'
 import Trash from '../../../assets/icons/trash.png'
 import Email from '../../../assets/icons/email.png'
 
-const SideNav = () => {
+const SideNav = ({showingInbox, inboxArray, trashArray, showInbox, showTrash}) => {
+
     return (
         <div className='sideNav'>
             <div className="sideNav__contents">
-                <div className="sideNav__contents-inbox">
+                <div className={`sideNav__contents-inbox ${showingInbox ? 'selected' : ''}`} onClick={showInbox}>
                     <div className="sideNav__contents-inbox-left">
                         <img className='email' src={Email} alt="" />
-                        <p>Inbox</p>
+                        <p className={`${showingInbox  ? 'selectedP' : ''}`}>Inbox</p>
                     </div>
-                    <div className="sideNav__contents-inbox-length">
-                        
+                    <div className="sideNav__contents-inbox-items">
+                        {inboxArray.length}
                     </div>
                 </div>
                 
-                <div className="sideNav__contents-trash">
+                <div className={`sideNav__contents-trash ${showingInbox  ? '' : 'selected'}`} onClick={showTrash}>
                     <div className="sideNav__contents-trash-left">
                         <img className='trash' src={Trash} alt="" />
-                        <p>Trash</p>
+                        <p className={`${showingInbox  ? '' : 'selectedP'}`}>Trash</p>
                     </div>
-                    <div className="sideNav__contents-trash-length">
-
+                    <div className="sideNav__contents-trash-items">
+                        {trashArray.length}
                     </div>
                 </div>
             </div>

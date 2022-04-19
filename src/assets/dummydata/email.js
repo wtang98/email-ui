@@ -1,6 +1,7 @@
 export const dummyemail = [
     {
         'read': false,
+        'urgent': false,
         'sender': ' Nicholas Young',
         'email': 'nicholas.metz42@hotmail.com',
         'subject': '',
@@ -9,6 +10,7 @@ export const dummyemail = [
         'picture': '',
     },{
         'read': false,
+        'urgent': false,
         'sender': 'Tammy Tyre',
         'email': 'houston75@hotmail.com',
         'subject': '',
@@ -17,6 +19,7 @@ export const dummyemail = [
         'picture': '',
     },{
         'read': false,
+        'urgent': false,
         'sender': 'Reggie Regs',
         'email': 'carmine.hyatt22@gmail.com',
         'subject': '',
@@ -25,6 +28,7 @@ export const dummyemail = [
         'picture': '',
     },{
         'read': false,
+        'urgent': false,
         'sender': 'Margarine Taylor',
         'email': 'marge72@yahoo.com',
         'subject': '',
@@ -33,6 +37,7 @@ export const dummyemail = [
         'picture': '',
     },{
         'read': false,
+        'urgent': false,
         'sender': 'Zena Mayer',
         'email': 'zena_mayer40@hotmail.com',
         'subject': '',
@@ -41,6 +46,7 @@ export const dummyemail = [
         'picture': '',
     },{
         'read': false,
+        'urgent': false,
         'sender': 'Blance Larkin',
         'email': 'blanche.larkin90@hotmail.com',
         'subject': '',
@@ -49,6 +55,7 @@ export const dummyemail = [
         'picture': '',
     },{
         'read': false,
+        'urgent': false,
         'sender': 'Generic Name',
         'email': 'dusty_wilderman@yahoo.com',
         'subject': '',

@@ -1,9 +1,8 @@
 @import '../../../assets/assets.scss';
+
 .sideNav{
     max-width: 316px;
-    // height: calc(100vh - 77px);
     &__contents{
-        border: 1px solid red;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -12,27 +11,40 @@
         &-inbox, &-trash{
             width: 13.4375vw;
             height: 55px;
-            border: 1px solid red;
+            border-radius: 8px;
+            // color: red;
             display: flex;
             justify-content: space-between;
             align-items: center;
             &-left{
+                margin-left: 24px;
                 display: flex;
                 align-items: center;
+                color: $inactive-tab-text;
                 .trash{
                     width: 15px;
                     height: 15px;
+
                 }
                 .email{
                     width: 15px;
                     height: 12px;
                 }
                 &>p{
-                    color: $inactive-tab-text;
                     margin-left: 12.04px;
-                    border: 1px solid red;
                 }
+            }
+            &-items{
+                margin-right: 24px;
+                color: $shiny-blue;
             }
         }
     }
+}
+.selected{
+    color: $dark-blue;
+    background-color: #bae8e85e;
+}
+.selectedP{
+    color: $dark-blue;
 }
