@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.sideNav {
+  max-width: 316px;
+}
+.sideNav__contents {
+  border: 1px solid red;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 42px;
+}
+.sideNav__contents-inbox, .sideNav__contents-trash {
+  width: 13.4375vw;
+  height: 55px;
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sideNav__contents-inbox-left, .sideNav__contents-trash-left {
+  display: flex;
+  align-items: center;
+}
+.sideNav__contents-inbox-left .trash, .sideNav__contents-trash-left .trash {
+  width: 15px;
+  height: 15px;
+}
+.sideNav__contents-inbox-left .email, .sideNav__contents-trash-left .email {
+  width: 15px;
+  height: 12px;
+}
+.sideNav__contents-inbox-left > p, .sideNav__contents-trash-left > p {
+  color: #BCC6CC;
+  margin-left: 12.04px;
+  border: 1px solid red;
+}

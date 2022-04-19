@@ -1,0 +1,13 @@
+.main{
+    width: 100vw;
+    // height: calc(100vh - 77px);
+    &__sideNav{
+        width: 16.46vw;
+    }
+    &__emailFeed{
+        width: 22.19vw;
+    }
+    &__emailContent{
+        width: 61.35vw;
+    }
+}

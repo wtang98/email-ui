@@ -1,0 +1,32 @@
+@import '../../assets/assets.scss';
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.topNav{
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    height: 77px;
+    font-family: $font-primary;
+    font-weight: 500, medium;
+    font-size: 24px;
+    &__logo{
+        display: flex;
+        align-items: center;
+        padding: 22.5px 5px 22.50px 45px;
+        &-p1{
+            color: $dark-blue;
+
+        }
+        &-p2{
+            color: $shiny-blue;
+        }
+    }
+    &__right{
+        display: flex;
+        align-items: center;
+        padding: 17px 46.87px 0 0;
+    }
+}
