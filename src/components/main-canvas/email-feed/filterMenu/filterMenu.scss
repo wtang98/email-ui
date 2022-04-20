@@ -1,0 +1,35 @@
+@import '../../../../assets/assets.scss';
+
+.filterMenu{
+    position: fixed;
+    top: 140px;
+    left: 32.5vw;
+    background-color: #FFFFFF;
+    border: 1px solid #E8F1F1;
+    width: 110px;
+    height: 120px;
+    padding: 20px 28px;
+    font-family: $font-primary;
+    &__container{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+
+        &-urgent{
+            &>p{
+                font-weight: 600;
+                font-size: 16px;
+            }
+        }
+        &-date{
+            &>p{
+                font-weight: 600;
+                font-size: 16px;
+                
+            }
+
+        }
+    }
+}

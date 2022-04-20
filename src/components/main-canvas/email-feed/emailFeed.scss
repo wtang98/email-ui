@@ -1,4 +1,54 @@
+@import '../../../assets/assets.scss';
+
 .emailFeed{
+    height: calc(100vh - 60px);
     width: 100%;
-    border: 1px solid brown;
+    font-family: $font-primary;
+    overflow: scroll;
+    &__buttons{
+        display: flex;
+        justify-content: space-between;
+        margin-top: 19px;
+        margin-bottom: 20px;
+        &-compose{
+            border: none;
+            border-radius: 3px;
+            margin-left: 21px;
+            width: 113px;
+            height: 35px;
+            background-color: $shiny-blue;
+            color: white;
+        }
+        &-filter{
+            border: 1px solid #EDEDED;
+            border-radius: 3px;
+            margin-right: 17px;
+            height: 35px;
+            width: 98px;
+            background-color: none;
+            color: $dark-blue;
+            &>img{
+                margin-left: 6px;
+            }
+        }
+    }
 }
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+//   ::-webkit-scrollbar-track {
+//     background: #f1f1f1; 
+//   }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

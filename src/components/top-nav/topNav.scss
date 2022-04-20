@@ -6,9 +6,10 @@
 }
 .topNav{
     display: flex;
+    border-bottom: #E8F1F1 1px solid;
     justify-content: space-between;
-    width: 100vw;
-    height: 77px;
+    width: 100%;
+    height: 76px;
     font-family: $font-primary;
     font-weight: 500, medium;
     font-size: 24px;
@@ -27,6 +28,10 @@
     &__right{
         display: flex;
         align-items: center;
-        padding: 17px 46.87px 0 0;
+        padding: 17px 46.87px 18px 0;
+        &-img{
+            width: 45px;
+            height: 45px;
+        }
     }
 }

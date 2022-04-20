@@ -12,7 +12,6 @@
             width: 13.4375vw;
             height: 55px;
             border-radius: 8px;
-            // color: red;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -20,6 +19,7 @@
                 margin-left: 24px;
                 display: flex;
                 align-items: center;
+                justify-content: center;
                 color: $inactive-tab-text;
                 .trash{
                     width: 15px;
@@ -44,7 +44,28 @@
 .selected{
     color: $dark-blue;
     background-color: #bae8e85e;
+    width: 13.4375vw;
 }
 .selectedP{
     color: $dark-blue;
+}
+
+@media only screen and (max-width: 747px) {
+    .sideNav{
+        &__contents{
+            &-inbox, &-trash{
+                &-left{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    &>p{
+                        display: none;
+                    }
+                }
+                &-items{
+                    display: none;
+                }
+            }
+        }
+    }
 }
