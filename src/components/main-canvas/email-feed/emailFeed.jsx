@@ -4,7 +4,7 @@ import EmailFeedItem from './emailFeedItem/emailFeedItem'
 import Filters from '../../../assets/icons/filters.png'
 import FilterMenu from './filterMenu/filterMenu'
 
-const EmailFeed = ({emailFeed, handleSortByDate, filterUrgentMail, displayTheEmailToRead}) => {
+const EmailFeed = ({orginalUrgentArray, originalUrgentTrashArray, showingInbox, handleSortByDate, filterUrgentMail, displayTheEmailToRead}) => {
     const [menuState, setMenuState] = useState(false)
     
     return (
@@ -17,9 +17,15 @@ const EmailFeed = ({emailFeed, handleSortByDate, filterUrgentMail, displayTheEma
                 </button>
                 {menuState && <FilterMenu filterUrgentMail={filterUrgentMail} handleSortByDate={handleSortByDate}/>}
             </div>
-            {emailFeed.map((arr, index) => {
-                return <EmailFeedItem index={index} displayTheEmailToRead={displayTheEmailToRead} read={arr.read} urgent={arr.urgent} sender={arr.sender} email={arr.email} subject={arr.subject} message={arr.message} date={arr.date} picture={arr.picture}/>
-            })}
+            {showingInbox ? 
+                orginalUrgentArray.map((arr, index) => {
+                    return <EmailFeedItem index={index} displayTheEmailToRead={displayTheEmailToRead} id={arr.id} read={arr.read} urgent={arr.urgent} sender={arr.sender} email={arr.email} subject={arr.subject} message={arr.message} date={arr.date} picture={arr.picture}/>
+                }) : 
+                originalUrgentTrashArray.map((arr, index) => {
+                    return <EmailFeedItem index={index} displayTheEmailToRead={displayTheEmailToRead} id={arr.id} read={arr.read} urgent={arr.urgent} sender={arr.sender} email={arr.email} subject={arr.subject} message={arr.message} date={arr.date} picture={arr.picture}/>
+                })
+            }
+            {/* {} */}
         </div>
     )
 }

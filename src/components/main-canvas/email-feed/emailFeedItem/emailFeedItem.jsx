@@ -1,7 +1,7 @@
 import React from 'react'
 import './emailFeedItem.scss'
 
-const EmailFeedItem = ({index, displayTheEmailToRead, read, urgent, sender, email, subject, message, date, picture}) => {
+const EmailFeedItem = ({index, displayTheEmailToRead, id, read, urgent, sender, email, subject, message, date, picture}) => {
     const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
     const getInitials = () => {
@@ -9,7 +9,7 @@ const EmailFeedItem = ({index, displayTheEmailToRead, read, urgent, sender, emai
     }
 
     return (
-        <div className='emailFeedItem' onClick={displayTheEmailToRead(index)}>
+        <div className='emailFeedItem' onClick={()=>(displayTheEmailToRead(id))}>
             <div className="emailFeedItem__right">
                 {picture? <img src={picture} alt="" />: <div>{}</div> }
             </div>
@@ -19,7 +19,7 @@ const EmailFeedItem = ({index, displayTheEmailToRead, read, urgent, sender, emai
                         {sender}
                     </p>
                     <p className="emailFeedItem__left-line1-date">
-                        <p>{`${monthArr[date.getMonth()]} ${date.getDate()}`}</p>
+                        <p>{`${monthArr[date.getMonth()]} ${date.getDate()} ${date.getFullYear()}`}</p>
                     </p>
                 </div>
                 <div className="emailFeedItem__left-line2">
