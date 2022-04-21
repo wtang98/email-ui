@@ -5,7 +5,8 @@ import Reply from '../../../assets/icons/reply.png'
 import BlueTrash from '../../../assets/icons/bluetrash.png'
 import Left from '../../../assets/icons/chevron-left.png'
 import Right from '../../../assets/icons/chevron-right.png'
-import Restore from '../../../assets/icons/restore.png'
+// import Restore from '../../../assets/icons/restore.svg'
+import RestoreFromTrashIcon from '@mui/icons-material/RestoreFromTrash';
 
 
 const EmailContent = ({showingInbox, displayEmailMessage, deleteEmail, restoreEmail, goBack, goForward}) => {
@@ -26,7 +27,8 @@ const EmailContent = ({showingInbox, displayEmailMessage, deleteEmail, restoreEm
                         <img src={ThreeDots} alt="" />
                         <img src={Reply} alt="" />
                         {showingInbox ? (<img src={BlueTrash} alt="" onClick={()=> deleteEmail(displayEmailMessage.id)}/>) 
-                        :(<img className='restore' src={Restore} alt="" onClick={()=> restoreEmail(displayEmailMessage.id)}/>)}
+                        :(<RestoreFromTrashIcon onClick={()=> restoreEmail(displayEmailMessage.id)}/>)}
+                        
                     </div>
                 </div>
                 <div className="emailContent__container-message">

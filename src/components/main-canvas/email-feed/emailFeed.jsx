@@ -18,12 +18,12 @@ const EmailFeed = ({orignalUrgentArray, originalUrgentTrashArray, showingInbox, 
                 {menuState && <FilterMenu filterUrgentMail={filterUrgentMail} handleSortByDate={handleSortByDate}/>}
             </div>
             {showingInbox ? 
-                orignalUrgentArray.map((arr) => {
-                    return <EmailFeedItem displayTheEmailToRead={displayTheEmailToRead} id={arr.id} read={arr.read} urgent={arr.urgent} sender={arr.sender} email={arr.email} subject={arr.subject} message={arr.message} date={arr.date} picture={arr.picture}/>
-                }) : 
-                originalUrgentTrashArray.map((arr) => {
-                    return <EmailFeedItem displayTheEmailToRead={displayTheEmailToRead} id={arr.id} read={arr.read} urgent={arr.urgent} sender={arr.sender} email={arr.email} subject={arr.subject} message={arr.message} date={arr.date} picture={arr.picture}/>
-                })
+                orignalUrgentArray.map((arr) => (
+                    <EmailFeedItem displayTheEmailToRead={displayTheEmailToRead} id={arr.id} read={arr.read} urgent={arr.urgent} sender={arr.sender} email={arr.email} subject={arr.subject} message={arr.message} date={arr.date} picture={arr.picture}/>
+                )) : 
+                originalUrgentTrashArray.map((arr) => (
+                    <EmailFeedItem displayTheEmailToRead={displayTheEmailToRead} id={arr.id} read={arr.read} urgent={arr.urgent} sender={arr.sender} email={arr.email} subject={arr.subject} message={arr.message} date={arr.date} picture={arr.picture}/>
+                ))
             }
             {/* {} */}
         </div>

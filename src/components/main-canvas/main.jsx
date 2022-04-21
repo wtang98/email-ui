@@ -105,7 +105,6 @@ const Main = () => {
             let copyNormal = [...originalArray];
             let copyTrash = [...originalTrashArray]
             for(let i=0; i<originalArray.length;i++){
-                console.log(originalArray[i].id)
                 if(originalArray[i].id === idNo){
                     copyTrash.push(originalArray[i])
                     copyNormal.splice(i, 1)
@@ -117,11 +116,12 @@ const Main = () => {
         }
     }
     const restoreEmail = (idNo) => {
-        if(showInbox === false){
+        console.log('clicked')
+        if(showingInbox === false){
             let copyNormal = [...originalArray];
             let copyTrash = [...originalTrashArray]
             for(let i=0; i<originalTrashArray.length;i++){
-                console.log(originalArray[i].id)
+                console.log('next')
                 if(originalTrashArray[i].id === idNo){
                     copyNormal.push(originalTrashArray[i])
                     copyTrash.splice(i, 1)
