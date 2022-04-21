@@ -3,7 +3,7 @@ import './side-nav.scss'
 import Trash from '../../../assets/icons/trash.png'
 import Email from '../../../assets/icons/email.png'
 
-const SideNav = ({showingInbox, inboxArray, trashArray, showInbox, showTrash}) => {
+const SideNav = ({showingInbox, originalArray, originalTrashArray, showInbox, showTrash}) => {
 
     return (
         <div className='sideNav'>
@@ -14,7 +14,7 @@ const SideNav = ({showingInbox, inboxArray, trashArray, showInbox, showTrash}) =
                         <p className={`${showingInbox  ? 'selectedP' : ''}`}>Inbox</p>
                     </div>
                     <div className="sideNav__contents-inbox-items">
-                        {inboxArray.length}
+                        {originalArray.length}
                     </div>
                 </div>
                 
@@ -24,7 +24,7 @@ const SideNav = ({showingInbox, inboxArray, trashArray, showInbox, showTrash}) =
                         <p className={`${showingInbox  ? '' : 'selectedP'}`}>Trash</p>
                     </div>
                     <div className="sideNav__contents-trash-items">
-                        {trashArray.length}
+                        {originalTrashArray.length}
                     </div>
                 </div>
             </div>

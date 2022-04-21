@@ -5,9 +5,10 @@ import Reply from '../../../assets/icons/reply.png'
 import BlueTrash from '../../../assets/icons/bluetrash.png'
 import Left from '../../../assets/icons/chevron-left.png'
 import Right from '../../../assets/icons/chevron-right.png'
+import Restore from '../../../assets/icons/restore.png'
 
 
-const EmailContent = ({displayEmailMessage, goBack, goForward}) => {
+const EmailContent = ({showingInbox, displayEmailMessage, deleteEmail, restoreEmail, goBack, goForward}) => {
     return (
         <div className='emailContent'>
             <div className="emailContent__container">
@@ -24,7 +25,8 @@ const EmailContent = ({displayEmailMessage, goBack, goForward}) => {
                     <div className="emailContent__container-topBar-right">
                         <img src={ThreeDots} alt="" />
                         <img src={Reply} alt="" />
-                        <img src={BlueTrash} alt="" />
+                        {showingInbox ? (<img src={BlueTrash} alt="" onClick={()=> deleteEmail(displayEmailMessage.id)}/>) 
+                        :(<img className='restore' src={Restore} alt="" onClick={()=> restoreEmail(displayEmailMessage.id)}/>)}
                     </div>
                 </div>
                 <div className="emailContent__container-message">

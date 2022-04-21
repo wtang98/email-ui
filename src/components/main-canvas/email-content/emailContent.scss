@@ -1,6 +1,12 @@
+@import '../../../assets/assets.scss';
+
 .emailContent{
     padding: 73px 88px;
     &__container{
+        height: 75vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         &-topBar{
             display: flex;
             justify-content: space-between;
@@ -15,19 +21,31 @@
                 }
             }
             &-right{
-
+                &>img{
+                    margin: 10px;
+                    width: 25px;
+                    height: 25px;
+                }
             }
         }
         &-message{
+            transform: translateY(-10vh);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: 35vh;
             &-subject{
-
+                font-size: 24px;
+                font-weight: 600;
             }
             &-main{
 
             }
         }
         &-cycleBar{
-
+            &>img{
+                margin-right: 7px;
+            }
         }
     }
 }
