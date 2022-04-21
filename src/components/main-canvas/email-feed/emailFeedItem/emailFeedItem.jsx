@@ -1,7 +1,7 @@
 import React from 'react'
 import './emailFeedItem.scss'
 
-const EmailFeedItem = ({index, displayTheEmailToRead, id, read, urgent, sender, email, subject, message, date, picture}) => {
+const EmailFeedItem = ({displayTheEmailToRead, id, read, urgent, sender, email, subject, message, date, picture}) => {
     const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
     const getInitials = () => {

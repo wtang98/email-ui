@@ -4,7 +4,7 @@ import EmailFeedItem from './emailFeedItem/emailFeedItem'
 import Filters from '../../../assets/icons/filters.png'
 import FilterMenu from './filterMenu/filterMenu'
 
-const EmailFeed = ({orginalUrgentArray, originalUrgentTrashArray, showingInbox, handleSortByDate, filterUrgentMail, displayTheEmailToRead}) => {
+const EmailFeed = ({orignalUrgentArray, originalUrgentTrashArray, showingInbox, handleSortByDate, filterUrgentMail, displayTheEmailToRead}) => {
     const [menuState, setMenuState] = useState(false)
     
     return (
@@ -18,11 +18,11 @@ const EmailFeed = ({orginalUrgentArray, originalUrgentTrashArray, showingInbox, 
                 {menuState && <FilterMenu filterUrgentMail={filterUrgentMail} handleSortByDate={handleSortByDate}/>}
             </div>
             {showingInbox ? 
-                orginalUrgentArray.map((arr, index) => {
-                    return <EmailFeedItem index={index} displayTheEmailToRead={displayTheEmailToRead} id={arr.id} read={arr.read} urgent={arr.urgent} sender={arr.sender} email={arr.email} subject={arr.subject} message={arr.message} date={arr.date} picture={arr.picture}/>
+                orignalUrgentArray.map((arr) => {
+                    return <EmailFeedItem displayTheEmailToRead={displayTheEmailToRead} id={arr.id} read={arr.read} urgent={arr.urgent} sender={arr.sender} email={arr.email} subject={arr.subject} message={arr.message} date={arr.date} picture={arr.picture}/>
                 }) : 
-                originalUrgentTrashArray.map((arr, index) => {
-                    return <EmailFeedItem index={index} displayTheEmailToRead={displayTheEmailToRead} id={arr.id} read={arr.read} urgent={arr.urgent} sender={arr.sender} email={arr.email} subject={arr.subject} message={arr.message} date={arr.date} picture={arr.picture}/>
+                originalUrgentTrashArray.map((arr) => {
+                    return <EmailFeedItem displayTheEmailToRead={displayTheEmailToRead} id={arr.id} read={arr.read} urgent={arr.urgent} sender={arr.sender} email={arr.email} subject={arr.subject} message={arr.message} date={arr.date} picture={arr.picture}/>
                 })
             }
             {/* {} */}

@@ -1,0 +1,33 @@
+.emailContent{
+    padding: 73px 88px;
+    &__container{
+        &-topBar{
+            display: flex;
+            justify-content: space-between;
+
+            &-left{
+            display: flex;
+                &-img{
+
+                }
+                &-details{
+
+                }
+            }
+            &-right{
+
+            }
+        }
+        &-message{
+            &-subject{
+
+            }
+            &-main{
+
+            }
+        }
+        &-cycleBar{
+
+        }
+    }
+}

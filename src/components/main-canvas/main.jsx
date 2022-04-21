@@ -13,14 +13,11 @@ const Main = () => {
     const [trashArray, setTrashArray] = useState(dummyTrash)
 
     const [originalArray, setOriginalArray] = useState(inboxArray)
-    const [orginalUrgentArray, setOrginalUrgentArray] = useState(inboxArray)
     const [originalTrashArray, setOriginalTrashArray] = useState(trashArray)
+    const [orignalUrgentArray, setOrignalUrgentArray] = useState(inboxArray)
     const [originalUrgentTrashArray, setOriginalUrgentTrashArray] = useState(trashArray)
 
-    // const [showArray, setShowArray] = useState(originalArray)
-    // const [filteredArray, setfilteredArray] = useState([])
     const [checked, setChecked] = useState(false)
-    const [dateSortedArray, setDateSortedArray] = useState([])
 
     const handleSortByDate = (e) => {
         if(e.target.value === '1'){
@@ -32,9 +29,11 @@ const Main = () => {
 
     const showInbox = () => {
         setShowingInbox(true)
+        setdisplayEmailMessage(orignalUrgentArray[0])
     }
     const showTrash = () => {
         setShowingInbox(false)
+        setdisplayEmailMessage(originalUrgentTrashArray[0])
     }
 
     const sortTheArraybyMostRecent = () => {
@@ -61,18 +60,7 @@ const Main = () => {
         setOriginalArray(sortedNormal)
         setOriginalTrashArray(sortedTrash)
     }
-
-    const [displayEmailMessage, setdisplayEmailMessage] = useState(inboxArray[0])
-    const displayTheEmailToRead = (idNo) => {
-        console.log(idNo)
-        const bothArr = [...trashArray,...inboxArray]
-        for(let i=0; i<bothArr.length;i++){
-            if(bothArr[i].id == idNo){
-                setdisplayEmailMessage(inboxArray[i])
-            }
-        }
-        console.log(displayEmailMessage)
-    }
+    useEffect(sortTheArraybyMostRecent,[])
     
     const filterUrgentMail = () => {
         setChecked(!checked)
@@ -84,16 +72,85 @@ const Main = () => {
             let trashCopy = [...originalTrashArray]
             let filteredEmail = inboxCopy.filter(arr => arr.urgent === true)
             let filteredTrash = trashCopy.filter(arr => arr.urgent === true)
-            setOrginalUrgentArray(filteredEmail)
+            setOrignalUrgentArray(filteredEmail)
             setOriginalUrgentTrashArray(filteredTrash)
         }else{
-            setOrginalUrgentArray(originalArray)
+            setOrignalUrgentArray(originalArray)
             setOriginalUrgentTrashArray(originalTrashArray)
         }
     }
-
-    useEffect(sortTheArraybyMostRecent,[])
     useEffect(filterUrgentMailTwo,[checked, originalTrashArray, originalUrgentTrashArray])
+    
+    
+    const [displayEmailMessage, setdisplayEmailMessage] = useState(undefined)
+    useEffect(()=> {
+        let copyNormal = [...originalArray];
+        let sortedNormal = copyNormal.sort((a,b) => {
+            return new Date(b.date) - new Date(a.date);
+        });
+        setdisplayEmailMessage(sortedNormal[0])
+    },[])
+
+    const displayTheEmailToRead = (idNo) => {
+        const bothArr = [...trashArray,...inboxArray]
+        for(let i=0; i<bothArr.length; i++){
+            if(bothArr[i].id == idNo){
+                setdisplayEmailMessage(bothArr[i])
+            }
+        }
+    }
+
+    const goBack = () => {
+        if(showingInbox === true){
+            console.log('click')
+            if(orignalUrgentArray[0] === displayEmailMessage){
+                setdisplayEmailMessage(orignalUrgentArray[orignalUrgentArray.length-1])
+            }else{
+                for(let i=0 ; i<orignalUrgentArray.length; i++){
+                    if(orignalUrgentArray[i]===displayEmailMessage){
+                        setdisplayEmailMessage(orignalUrgentArray[i-1])
+                    }
+                }
+            }
+        }
+        if(showingInbox === false){
+            if(originalUrgentTrashArray[0] === displayEmailMessage){
+                setdisplayEmailMessage(originalUrgentTrashArray[originalUrgentTrashArray.length-1])
+            }else{
+                for(let i=0 ; i<originalUrgentTrashArray.length; i++){
+                    if(originalUrgentTrashArray[i]===displayEmailMessage){
+                        setdisplayEmailMessage(originalUrgentTrashArray[i-1])
+                    }
+                }
+            }
+        }
+    }
+
+    const goForward = () => {
+        if(showingInbox === true){
+            console.log('click')
+            if(orignalUrgentArray[orignalUrgentArray.length-1] === displayEmailMessage){
+                setdisplayEmailMessage(orignalUrgentArray[0])
+            }else{
+                for(let i=0 ; i<orignalUrgentArray.length; i++){
+                    if(orignalUrgentArray[i] === displayEmailMessage){
+                        setdisplayEmailMessage(orignalUrgentArray[i+1])
+                    }
+                }
+            }
+        }
+        if(showingInbox === false){
+            if(originalUrgentTrashArray[originalUrgentTrashArray.length-1] === displayEmailMessage){
+                setdisplayEmailMessage(originalUrgentTrashArray[0])
+            }else{
+                for(let i=0 ; i<originalUrgentTrashArray.length; i++){
+                    if(originalUrgentTrashArray[i] === displayEmailMessage){
+                        setdisplayEmailMessage(originalUrgentTrashArray[i+1])
+                    }
+                }
+            }
+        }
+    }
 
     return (
         <div className='main'>
@@ -101,10 +158,10 @@ const Main = () => {
                 <SideNav showingInbox={showingInbox} inboxArray={inboxArray} trashArray={trashArray} showInbox={showInbox} showTrash={showTrash}/>
             </div>
             <div className="main__emailFeed">
-                <EmailFeed orginalUrgentArray={orginalUrgentArray} originalUrgentTrashArray={originalUrgentTrashArray} showingInbox={showingInbox} handleSortByDate={handleSortByDate} filterUrgentMail={filterUrgentMail} displayTheEmailToRead={displayTheEmailToRead}/>
+                <EmailFeed orignalUrgentArray={orignalUrgentArray} originalUrgentTrashArray={originalUrgentTrashArray} showingInbox={showingInbox} handleSortByDate={handleSortByDate} filterUrgentMail={filterUrgentMail} displayTheEmailToRead={displayTheEmailToRead}/>
             </div>
             <div className="main__emailContent">
-                <EmailContent/>
+                {displayEmailMessage != undefined && <EmailContent displayEmailMessage={displayEmailMessage} goBack={goBack} goForward={goForward}/>}
             </div>
         </div>
     )
