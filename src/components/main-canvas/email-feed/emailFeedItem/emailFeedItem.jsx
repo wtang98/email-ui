@@ -1,7 +1,7 @@
 import React from 'react'
 import './emailFeedItem.scss'
 
-const EmailFeedItem = ({displayTheEmailToRead, id, read, urgent, sender, email, subject, message, date, picture}) => {
+const EmailFeedItem = ({arrayUsed, displayTheEmailToRead, selectedId, id, read, urgent, sender, email, subject, message, date, picture}) => {
     const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
     const getInitials = () => {
@@ -9,7 +9,7 @@ const EmailFeedItem = ({displayTheEmailToRead, id, read, urgent, sender, email, 
     }
 
     return (
-        <div className='emailFeedItem' onClick={()=>(displayTheEmailToRead(id))}>
+        <div className={`emailFeedItem ${selectedId ===id && 'selectedEmail'}`} onClick={()=>(displayTheEmailToRead(arrayUsed, id))}>
             <div className="emailFeedItem__right">
                 {picture? <img src={picture} alt="" />: <div>{}</div> }
             </div>

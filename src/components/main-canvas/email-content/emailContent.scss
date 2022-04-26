@@ -2,6 +2,7 @@
 
 .emailContent{
     padding: 73px 88px;
+    overflow-y: scroll;
     &__container{
         height: 75vh;
         display: flex;
