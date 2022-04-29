@@ -1,7 +1,35 @@
 import React from 'react'
 import './emailFeedItem.scss'
 
-const EmailFeedItem = ({arrayUsed, displayTheEmailToRead, selectedId, id, read, urgent, sender, email, subject, message, date, picture}) => {
+type dataObj= {
+    'id': number;
+    'read': boolean;
+    'urgent': boolean;
+    'sender': string;
+    'email': string;
+    'subject': string;
+    'message': string;
+    'date': Date;
+    'picture': string;
+    'inTrash': boolean
+}
+
+interface Props {
+    arrayUsed: Array<dataObj>;
+    displayTheEmailToRead: (arrayUsed:Array<dataObj>, idNo:number) => void;
+    selectedId: number;
+    id: number;
+    read: boolean;
+    urgent: boolean;
+    sender: string;
+    email: string;
+    subject: string;
+    message: string;
+    date: Date;
+    picture: string;
+}
+//urgent, sender, email, subject, message, date, picture
+const EmailFeedItem:React.FC<Props> = ({arrayUsed, displayTheEmailToRead, selectedId, id, read, urgent, sender, email, subject, message, date, picture}) => {
     const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
     const getInitials = () => {

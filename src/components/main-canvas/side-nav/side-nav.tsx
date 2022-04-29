@@ -3,10 +3,23 @@ import './side-nav.scss'
 import Trash from '../../../assets/icons/trash.png'
 import Email from '../../../assets/icons/email.png'
 
+type dataObj= {
+    'id': number;
+    'read': boolean;
+    'urgent': boolean;
+    'sender': string;
+    'email': string;
+    'subject': string;
+    'message': string;
+    'date': Date;
+    'picture': string;
+    'inTrash': boolean
+}
+
 interface Props {
     showingInbox: boolean;
-    originalArray: Array<object>;
-    originalTrashArray: Array<object>;
+    originalArray: Array<dataObj>;
+    originalTrashArray: Array<dataObj>;
     showInbox: () => void;
     showTrash: () => void;
 }

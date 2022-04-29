@@ -6,7 +6,7 @@ import dummyTrash from '../../assets/dummydata/trash.js'
 import EmailFeed from './email-feed/emailFeed'
 import EmailContent from './email-content/emailContent'
 
-type dataObj= {
+type dataObj  = {
     'id': number;
     'read': boolean;
     'urgent': boolean;
@@ -101,7 +101,7 @@ const Main: React.FC = () => {
     
     useEffect(()=> {
         let copyNormal = [...originalArray];
-        let sortedNormal = copyNormal.sort((a:dataObj,b:dataObj) => {
+        let sortedNormal = copyNormal.sort((a:dataObj, b:dataObj) => {
             return Number(new Date(b.date)) - Number(new Date(a.date));
         });
         setdisplayEmailMessage(sortedNormal[0])

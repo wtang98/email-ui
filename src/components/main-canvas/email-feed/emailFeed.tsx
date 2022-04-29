@@ -4,7 +4,30 @@ import EmailFeedItem from './emailFeedItem/emailFeedItem.jsx'
 import Filters from '../../../assets/icons/filters.png'
 import FilterMenu from './filterMenu/filterMenu'
 
-const EmailFeed = ({orignalUrgentArray, originalUrgentTrashArray, showingInbox, selectedId, handleSortByDate, filterUrgentMail, displayTheEmailToRead}) => {
+type dataObj= {
+    'id': number;
+    'read': boolean;
+    'urgent': boolean;
+    'sender': string;
+    'email': string;
+    'subject': string;
+    'message': string;
+    'date': Date;
+    'picture': string;
+    'inTrash': boolean
+}
+
+interface Props {
+    orignalUrgentArray: Array<dataObj>;
+    originalUrgentTrashArray: Array<dataObj>;
+    showingInbox: boolean;
+    selectedId: number;
+    handleSortByDate: (e:string) => void;
+    filterUrgentMail: () => void;
+    displayTheEmailToRead: (arrayUsed:Array<dataObj>, idNo:number) => void;
+}   
+
+const EmailFeed:React.FC<Props> = ({orignalUrgentArray, originalUrgentTrashArray, showingInbox, selectedId, handleSortByDate, filterUrgentMail, displayTheEmailToRead}) => {
     const [menuState, setMenuState] = useState(false)
     
     return (

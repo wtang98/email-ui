@@ -5,11 +5,31 @@ import Reply from '../../../assets/icons/reply.png'
 import BlueTrash from '../../../assets/icons/bluetrash.png'
 import Left from '../../../assets/icons/chevron-left.png'
 import Right from '../../../assets/icons/chevron-right.png'
-// import Restore from '../../../assets/icons/restore.svg'
 import RestoreFromTrashIcon from '@mui/icons-material/RestoreFromTrash';
 
+type dataObj= {
+    'id': number;
+    'read': boolean;
+    'urgent': boolean;
+    'sender': string;
+    'email': string;
+    'subject': string;
+    'message': string;
+    'date': Date;
+    'picture': string;
+    'inTrash': boolean
+}
 
-const EmailContent = ({showingInbox, displayEmailMessage, deleteEmail, restoreEmail, goBack, goForward}) => {
+interface Props {
+    showingInbox: boolean;
+    displayEmailMessage: dataObj;
+    deleteEmail: (idNo:number)=>void;
+    restoreEmail: (idNo:number)=>void;
+    goBack: ()=> void;
+    goForward: ()=> void;
+}
+
+const EmailContent: React.FC<Props> = ({showingInbox, displayEmailMessage, deleteEmail, restoreEmail, goBack, goForward}) => {
     return (
         <div className='emailContent'>
             <div className="emailContent__container">
