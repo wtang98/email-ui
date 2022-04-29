@@ -18,7 +18,12 @@
 
                 }
                 &-details{
-
+                    .sender{
+                        color: $shiny-blue;
+                    }
+                    .email{
+                        color: $light-blue;
+                    }
                 }
             }
             &-right{

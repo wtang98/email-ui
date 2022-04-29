@@ -19,8 +19,8 @@ const EmailContent = ({showingInbox, displayEmailMessage, deleteEmail, restoreEm
                             {displayEmailMessage.picture != undefined && <img src={displayEmailMessage.picture} alt="" />}
                         </div>
                         <div className="emailContent__container-topBar-left-details">
-                            <p>{displayEmailMessage.sender}</p>
-                            <p>{displayEmailMessage.email}</p>
+                            <p className='sender'>{displayEmailMessage.sender}</p>
+                            <p className='email'>{displayEmailMessage.email}</p>
                         </div>
                     </div>
                     <div className="emailContent__container-topBar-right">

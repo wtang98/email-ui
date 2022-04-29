@@ -6,8 +6,20 @@ import dummyTrash from '../../assets/dummydata/trash.js'
 import EmailFeed from './email-feed/emailFeed'
 import EmailContent from './email-content/emailContent'
 
+interface dataArr{
+    'id': number,
+    'read': boolean,
+    'urgent': boolean,
+    'sender': string,
+    'email': string,
+    'subject': string,
+    'message': string,
+    'date': Date,
+    'picture': string,
+    'inTrash': boolean
+}
 
-const Main = () => {
+const Main: React.FC = () => {
     const [showingInbox, setShowingInbox] = useState(true)
     const [inboxArray, setInboxArray] = useState(dummyemail)
     const [trashArray, setTrashArray] = useState(dummyTrash)
@@ -19,7 +31,7 @@ const Main = () => {
 
     const [checked, setChecked] = useState(false)
     const [displayEmailMessage, setdisplayEmailMessage] = useState(undefined)
-    const [selectedId, setSelectedId] = useState('')
+    const [selectedId, setSelectedId] = useState(0)
 
     const showInbox = () => {
         setShowingInbox(true)
@@ -39,16 +51,14 @@ const Main = () => {
             sortTheArrayByOldest(false, originalTrashArray)
         }
     }
-    const sortTheArraybyMostRecent = (isInbox, arr) => {
+    const sortTheArraybyMostRecent = (isInbox: Boolean, arr: Array<Object>) => {
         let copy = [...arr]
-        console.log(copy)
-        let sorted = copy.sort((a,b) => {
+        let sorted = copy.sort((a, b) => {
             return new Date(b.date) - new Date(a.date);
         });
         if(isInbox === true){
             setOriginalArray(sorted)
         }else{
-            console.log('why?')
             setOriginalTrashArray(sorted)
         }
     }
@@ -57,7 +67,7 @@ const Main = () => {
         sortTheArraybyMostRecent(false, originalTrashArray)
     },[inboxArray, trashArray])
 
-    const sortTheArrayByOldest = (isInbox, arr) => {
+    const sortTheArrayByOldest = (isInbox: Boolean, arr: Array<Object>) => {
         let copy = [...arr]
         console.log(copy)
         let sorted = copy.sort((b,a) => {
@@ -90,7 +100,7 @@ const Main = () => {
     
     useEffect(()=> {
         let copyNormal = [...originalArray];
-        let sortedNormal = copyNormal.sort((a,b) => {
+        let sortedNormal = copyNormal.sort((a:any,b:any) => {
             return new Date(b.date) - new Date(a.date);
         });
         setdisplayEmailMessage(sortedNormal[0])
