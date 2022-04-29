@@ -6,16 +6,16 @@ import dummyTrash from '../../assets/dummydata/trash.js'
 import EmailFeed from './email-feed/emailFeed'
 import EmailContent from './email-content/emailContent'
 
-interface dataArr{
-    'id': number,
-    'read': boolean,
-    'urgent': boolean,
-    'sender': string,
-    'email': string,
-    'subject': string,
-    'message': string,
-    'date': Date,
-    'picture': string,
+type dataObj= {
+    'id': number;
+    'read': boolean;
+    'urgent': boolean;
+    'sender': string;
+    'email': string;
+    'subject': string;
+    'message': string;
+    'date': Date;
+    'picture': string;
     'inTrash': boolean
 }
 
@@ -51,10 +51,11 @@ const Main: React.FC = () => {
             sortTheArrayByOldest(false, originalTrashArray)
         }
     }
-    const sortTheArraybyMostRecent = (isInbox: Boolean, arr: Array<Object>) => {
+
+    const sortTheArraybyMostRecent = (isInbox: boolean, arr: Array<dataObj>) => {
         let copy = [...arr]
-        let sorted = copy.sort((a, b) => {
-            return new Date(b.date) - new Date(a.date);
+        let sorted: Array<dataObj> = copy.sort((a:dataObj, b:dataObj) => {
+            return Number(new Date(b.date)) -  Number(new Date(a.date));
         });
         if(isInbox === true){
             setOriginalArray(sorted)
@@ -67,11 +68,11 @@ const Main: React.FC = () => {
         sortTheArraybyMostRecent(false, originalTrashArray)
     },[inboxArray, trashArray])
 
-    const sortTheArrayByOldest = (isInbox: Boolean, arr: Array<Object>) => {
+    const sortTheArrayByOldest = (isInbox: boolean, arr: Array<dataObj>) => {
         let copy = [...arr]
         console.log(copy)
-        let sorted = copy.sort((b,a) => {
-            return new Date(b.date) - new Date(a.date);
+        let sorted: Array<dataObj> = copy.sort((b:dataObj, a:dataObj) => {
+            return Number(new Date(b.date)) - Number(new Date(a.date));
         });
         if(isInbox === true){
             setOriginalArray(sorted)
@@ -100,14 +101,14 @@ const Main: React.FC = () => {
     
     useEffect(()=> {
         let copyNormal = [...originalArray];
-        let sortedNormal = copyNormal.sort((a:any,b:any) => {
-            return new Date(b.date) - new Date(a.date);
+        let sortedNormal = copyNormal.sort((a:dataObj,b:dataObj) => {
+            return Number(new Date(b.date)) - Number(new Date(a.date));
         });
         setdisplayEmailMessage(sortedNormal[0])
         setSelectedId(sortedNormal[0].id)
     },[])
 
-    const displayTheEmailToRead = (arrayUsed, idNo) => {
+    const displayTheEmailToRead = (arrayUsed:Array<dataObj>, idNo:number) => {
         const copyArr = [...arrayUsed]
         for(let i=0; i<copyArr.length; i++){
             if(copyArr[i].id == idNo){
@@ -123,7 +124,7 @@ const Main: React.FC = () => {
         }
     }
 
-    const deleteEmail = (idNo) => {
+    const deleteEmail = (idNo:number) => {
         if(showingInbox === true){
             let copyNormal = [...originalArray];
             let copyTrash = [...originalTrashArray]
@@ -138,7 +139,7 @@ const Main: React.FC = () => {
             goForward()
         }
     }
-    const restoreEmail = (idNo) => {
+    const restoreEmail = (idNo:number) => {
         if(showingInbox === false){
             let copyNormal = [...originalArray];
             let copyTrash = [...originalTrashArray]
