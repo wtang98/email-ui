@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import './emailFeed.scss'
-import EmailFeedItem from './emailFeedItem/emailFeedItem.jsx'
+import EmailFeedItem from './emailFeedItem/emailFeedItem'
 import Filters from '../../../assets/icons/filters.png'
 import FilterMenu from './filterMenu/filterMenu'
 
