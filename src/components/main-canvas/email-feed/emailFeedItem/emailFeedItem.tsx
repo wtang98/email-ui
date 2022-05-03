@@ -37,7 +37,6 @@ const EmailFeedItem:React.FC<Props> = ({arrayUsed, displayTheEmailToRead, select
         let inits= '';
         if(picture === ''){
             let nameArr = sender.split(" ")
-            console.log(nameArr)
             for(let i=0; i<nameArr.length; i++){
                 inits += nameArr[i][0]
             }

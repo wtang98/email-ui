@@ -44,19 +44,14 @@ const Main: React.FC = () => {
 
     const handleSortByDate = (e) => {
         if(e.target.value === '1'){
-            if(showingInbox===true){
                 sortTheArraybyMostRecent(true, originalArray)
-            }else{
                 sortTheArraybyMostRecent(false, originalTrashArray)
-            }
         } if(e.target.value === '2'){
-            if(showingInbox===true){
                 sortTheArrayByOldest(true, originalArray)
-            }else{
                 sortTheArrayByOldest(false, originalTrashArray)
-            }
         }
     }
+
 
     const sortTheArraybyMostRecent = (isInbox: boolean, arr: Array<dataObj>) => {
         let copy = [...arr]
@@ -65,29 +60,32 @@ const Main: React.FC = () => {
         });
         if(isInbox === true){
             setOriginalArray(sorted)
-            displayTheEmailToRead(sorted, sorted[0].id)
         }else{
             setOriginalTrashArray(sorted)
-            displayTheEmailToRead(sorted, sorted[0].id)
         }
     }
 
     useEffect(()=> {
         sortTheArraybyMostRecent(true, originalArray)
     },[])
+    useEffect(()=> {
+        if(showingInbox===true){
+            setdisplayEmailMessage(orignalUrgentArray[0])
+        }else{
+            setdisplayEmailMessage(originalUrgentTrashArray[0])
+        }
+    },[originalArray, originalTrashArray, orignalUrgentArray, originalUrgentTrashArray])
 
     const sortTheArrayByOldest = (isInbox: boolean, arr: Array<dataObj>) => {
         let copy = [...arr]
-        console.log(copy)
         let sorted: Array<dataObj> = copy.sort((b:dataObj, a:dataObj) => {
             return Number(new Date(b.date)) - Number(new Date(a.date));
         });
         if(isInbox === true){
             setOriginalArray(sorted)
-            displayTheEmailToRead(sorted, sorted[0].id)
+            console.log(displayEmailMessage)
         }else{
             setOriginalTrashArray(sorted)
-            displayTheEmailToRead(sorted, sorted[0].id)
         }
     }
     
@@ -107,8 +105,8 @@ const Main: React.FC = () => {
             setOriginalUrgentTrashArray(originalTrashArray)
         }
     }
+
     useEffect(filterUrgentMailTwo,[checked,originalArray, originalTrashArray, orignalUrgentArray, originalUrgentTrashArray])
-    
     useEffect(()=> {
         let copyNormal = [...originalArray];
         let sortedNormal = copyNormal.sort((a:dataObj, b:dataObj) => {

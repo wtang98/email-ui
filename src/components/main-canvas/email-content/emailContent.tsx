@@ -35,7 +35,6 @@ const EmailContent: React.FC<Props> = ({showingInbox, displayEmailMessage, delet
         let inits= '';
         if(displayEmailMessage.picture === ''){
             let nameArr = displayEmailMessage.sender.split(" ")
-            console.log(nameArr)
             for(let i=0; i<nameArr.length; i++){
                 inits += nameArr[i][0]
             }
