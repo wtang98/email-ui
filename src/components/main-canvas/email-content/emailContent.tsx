@@ -43,7 +43,7 @@ const EmailContent: React.FC<Props> = ({showingInbox, displayEmailMessage, delet
     })
 
     return (
-        <div className='emailContent'>
+        <div className='emailContent' data-cy={`emailContent-${displayEmailMessage.id}`}>
             <div className="emailContent__container">
                 <div className="emailContent__container-topBar">
                     <div className="emailContent__container-topBar-left">

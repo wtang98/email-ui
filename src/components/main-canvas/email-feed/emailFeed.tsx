@@ -34,7 +34,7 @@ const EmailFeed:React.FC<Props> = ({orignalUrgentArray, originalUrgentTrashArray
         <div className='emailFeed'>
             <div className="emailFeed__buttons">
                 <button className="emailFeed__buttons-compose">Compose +</button>
-                <button className="emailFeed__buttons-filter" onClick={()=>{setMenuState(!menuState)}}>
+                <button className="emailFeed__buttons-filter" onClick={()=>{setMenuState(!menuState)}} data-cy='filterMenuButton'>
                     Filter By
                     <img src={Filters} alt="" />
                 </button>

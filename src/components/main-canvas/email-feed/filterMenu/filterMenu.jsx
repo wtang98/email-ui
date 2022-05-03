@@ -4,7 +4,7 @@ import './filterMenu.scss'
 const FilterMenu = ({filterUrgentMail, handleSortByDate}) => {
 
     return (
-        <div className='filterMenu'>
+        <div className='filterMenu' data-cy='filterMenu'>
             <div className="filterMenu__container">
                 <div className="filterMenu__container-urgent">
                     <p>Urgent?</p>
