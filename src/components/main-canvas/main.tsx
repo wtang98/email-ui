@@ -44,11 +44,17 @@ const Main: React.FC = () => {
 
     const handleSortByDate = (e) => {
         if(e.target.value === '1'){
-            sortTheArraybyMostRecent(true, originalArray)
-            sortTheArraybyMostRecent(false, originalTrashArray)
+            if(showingInbox===true){
+                sortTheArraybyMostRecent(true, originalArray)
+            }else{
+                sortTheArraybyMostRecent(false, originalTrashArray)
+            }
         } if(e.target.value === '2'){
-            sortTheArrayByOldest(true, originalArray)
-            sortTheArrayByOldest(false, originalTrashArray)
+            if(showingInbox===true){
+                sortTheArrayByOldest(true, originalArray)
+            }else{
+                sortTheArrayByOldest(false, originalTrashArray)
+            }
         }
     }
 
@@ -59,16 +65,16 @@ const Main: React.FC = () => {
         });
         if(isInbox === true){
             setOriginalArray(sorted)
-            displayTheEmailToRead(originalArray, originalArray[0].id)
+            displayTheEmailToRead(sorted, sorted[0].id)
         }else{
             setOriginalTrashArray(sorted)
-            displayTheEmailToRead(originalTrashArray, originalTrashArray[0].id)
+            displayTheEmailToRead(sorted, sorted[0].id)
         }
     }
+
     useEffect(()=> {
         sortTheArraybyMostRecent(true, originalArray)
-        sortTheArraybyMostRecent(false, originalTrashArray)
-    },[inboxArray, trashArray])
+    },[])
 
     const sortTheArrayByOldest = (isInbox: boolean, arr: Array<dataObj>) => {
         let copy = [...arr]
@@ -78,10 +84,10 @@ const Main: React.FC = () => {
         });
         if(isInbox === true){
             setOriginalArray(sorted)
-            displayTheEmailToRead(originalArray, originalArray[0].id)
+            displayTheEmailToRead(sorted, sorted[0].id)
         }else{
             setOriginalTrashArray(sorted)
-            displayTheEmailToRead(originalTrashArray, originalTrashArray[0].id)
+            displayTheEmailToRead(sorted, sorted[0].id)
         }
     }
     
