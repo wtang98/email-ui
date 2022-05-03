@@ -45,7 +45,7 @@ const EmailFeedItem:React.FC<Props> = ({arrayUsed, displayTheEmailToRead, select
     })
 
     return (
-        <div className={`emailFeedItem ${selectedId ===id && 'selectedEmail'}`} onClick={()=>(displayTheEmailToRead(arrayUsed, id))}>
+        <div className={`emailFeedItem ${selectedId ===id && 'selectedEmail'}`} onClick={()=>(displayTheEmailToRead(arrayUsed, id))} data-cy='emailFeedItem'>
             <div className="emailFeedItem__right">
                 {picture? <img src={picture} alt="" />: <div className='initials'>{initials}</div> }
             </div>

@@ -29,22 +29,22 @@ const SideNav: React.FC<Props> = ({showingInbox, originalArray, originalTrashArr
     return (
         <div className='sideNav'>
             <div className='sideNav__contents'>
-                <div className={`sideNav__contents-inbox ${showingInbox ? 'selected' : ''}`} onClick={showInbox}>
+                <div className={`sideNav__contents-inbox ${showingInbox ? 'selected' : ''}`} onClick={showInbox} data-cy='inboxSelector'>
                     <div className='sideNav__contents-inbox-left'>
                         <img className='email' src={Email} alt='' />
                         <p className={`${showingInbox  ? 'selectedP' : ''}`}>Inbox</p>
                     </div>
-                    <div className='sideNav__contents-inbox-items'>
+                    <div className='sideNav__contents-inbox-items' data-cy='inboxCounter'>
                         {originalArray.length}
                     </div>
                 </div>
                 
-                <div className={`sideNav__contents-trash ${showingInbox  ? '' : 'selected'}`} onClick={showTrash}>
+                <div className={`sideNav__contents-trash ${showingInbox  ? '' : 'selected'}`} onClick={showTrash} data-cy='trashSelector'>
                     <div className='sideNav__contents-trash-left'>
                         <img className='trash' src={Trash} alt='' />
                         <p className={`${showingInbox  ? '' : 'selectedP'}`}>Trash</p>
                     </div>
-                    <div className='sideNav__contents-trash-items'>
+                    <div className='sideNav__contents-trash-items' data-cy='trashCounter'>
                         {originalTrashArray.length}
                     </div>
                 </div>

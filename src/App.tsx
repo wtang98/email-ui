@@ -4,7 +4,7 @@ import Home from './components/home';
 
 const App:React.FC = () => {
 	return (
-		<div className="App">
+		<div className="App" data-cy='app'>
 			<Home/>
 		</div>
 	);

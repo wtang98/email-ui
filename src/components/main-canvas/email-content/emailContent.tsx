@@ -58,8 +58,8 @@ const EmailContent: React.FC<Props> = ({showingInbox, displayEmailMessage, delet
                     <div className="emailContent__container-topBar-right">
                         <img src={ThreeDots} alt="" />
                         <img src={Reply} alt="" />
-                        {showingInbox ? (<img src={BlueTrash} alt="" onClick={()=> deleteEmail(displayEmailMessage.id)}/>) 
-                        :(<RestoreFromTrashIcon onClick={()=> restoreEmail(displayEmailMessage.id)}/>)}
+                        {showingInbox ? (<img src={BlueTrash} alt="" onClick={()=> deleteEmail(displayEmailMessage.id)} data-cy='deleteButton'/>) 
+                        :(<RestoreFromTrashIcon onClick={()=> restoreEmail(displayEmailMessage.id)} data-cy='restoreButton'/>)}
                         
                     </div>
                 </div>
