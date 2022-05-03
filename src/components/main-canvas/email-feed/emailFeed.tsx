@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import './emailFeed.scss'
 import EmailFeedItem from './emailFeedItem/emailFeedItem'
 import Filters from '../../../assets/icons/filters.png'
@@ -48,7 +48,6 @@ const EmailFeed:React.FC<Props> = ({orignalUrgentArray, originalUrgentTrashArray
                     <EmailFeedItem arrayUsed={originalUrgentTrashArray} displayTheEmailToRead={displayTheEmailToRead} selectedId={selectedId} id={arr.id} read={arr.read} urgent={arr.urgent} sender={arr.sender} email={arr.email} subject={arr.subject} message={arr.message} date={arr.date} picture={arr.picture}/>
                 ))
             }
-            {/* {} */}
         </div>
     )
 }

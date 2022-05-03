@@ -10,6 +10,7 @@
         margin-top: 42px;
         &-inbox, &-trash{
             width: 13.4375vw;
+            min-width: 250px;
             height: 55px;
             border-radius: 8px;
             display: flex;

@@ -5,7 +5,6 @@
     max-height: 163px;
     display: flex;
     background-color: #F5FCFC;
-
     &__right{
         width: 17%;
         display: flex;
@@ -14,6 +13,17 @@
             margin-top: 23px;
             width: 45px;
             height: 45px;
+        }
+        .initials{
+            transform: translateY(5px);
+            width: 45px;
+            height: 45px;
+            border: 1px solid $shiny-blue;
+            color: $shiny-blue;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
     &__left{

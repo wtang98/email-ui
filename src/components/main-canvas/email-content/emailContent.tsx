@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './emailContent.scss'
 import ThreeDots from '../../../assets/icons/3dots.png'
 import Reply from '../../../assets/icons/reply.png'
@@ -30,13 +30,26 @@ interface Props {
 }
 
 const EmailContent: React.FC<Props> = ({showingInbox, displayEmailMessage, deleteEmail, restoreEmail, goBack, goForward}) => {
+    const [initials, setinitials] = useState('')
+    useEffect(()=> {
+        let inits= '';
+        if(displayEmailMessage.picture === ''){
+            let nameArr = displayEmailMessage.sender.split(" ")
+            console.log(nameArr)
+            for(let i=0; i<nameArr.length; i++){
+                inits += nameArr[i][0]
+            }
+        }
+        setinitials(inits)
+    })
+
     return (
         <div className='emailContent'>
             <div className="emailContent__container">
                 <div className="emailContent__container-topBar">
                     <div className="emailContent__container-topBar-left">
                         <div className="emailContent__container-topBar-left-img">
-                            {displayEmailMessage.picture != undefined && <img src={displayEmailMessage.picture} alt="" />}
+                            {displayEmailMessage.picture != '' ? <img src={displayEmailMessage.picture} alt="" /> : <div className='initials'>{initials}</div> }
                         </div>
                         <div className="emailContent__container-topBar-left-details">
                             <p className='sender'>{displayEmailMessage.sender}</p>

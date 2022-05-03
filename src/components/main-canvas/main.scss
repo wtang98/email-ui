@@ -1,18 +1,18 @@
 .main{
-    // width: calc(100vw - 3px);
-    // height: calc(100vh - 77px);
     background-color: #FFFFFF;
     display: flex;
-
     &__sideNav{
         width: 16.46vw;
+        min-width: 270px;
         border-right: 1px solid #E8F1F1;
     }
     &__emailFeed{
         width: 22.19vw;
+        min-width: 375px;
     }
     &__emailContent{
         border-left: 1px solid #E8F1F1;
         max-width: 61.35vw;
+        overflow: scroll;
     }
 }

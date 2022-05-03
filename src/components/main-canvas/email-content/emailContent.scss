@@ -11,13 +11,30 @@
         &-topBar{
             display: flex;
             justify-content: space-between;
-
+            align-items: center;
             &-left{
             display: flex;
                 &-img{
-
+                    &>img{
+                        width: 50px;
+                    }
+                    .initials{
+                        border: 1px solid $shiny-blue;
+                        color: $shiny-blue;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: x-large;
+                        width: 50px;
+                        height: 50px;
+                    }
                 }
                 &-details{
+                    margin-left: 8px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
                     .sender{
                         color: $shiny-blue;
                     }
@@ -42,17 +59,20 @@
             }
         }
         &-message{
-            transform: translateY(-10vh);
+            overflow: auto;
+            transform: translateY(-4vh);
             display: flex;
             flex-direction: column;
-            justify-content: space-evenly;
-            height: 35vh;
+            justify-content: space-between;
+            min-height: 30vh;
             &-subject{
+                margin-bottom: 24px;
                 font-size: 24px;
                 font-weight: 600;
+                color: $dark-blue;
             }
             &-main{
-
+                color: $light-blue;
             }
         }
         &-cycleBar{

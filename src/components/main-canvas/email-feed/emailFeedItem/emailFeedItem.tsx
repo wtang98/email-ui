@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect} from 'react'
 import './emailFeedItem.scss'
 
 type dataObj= {
@@ -32,14 +32,23 @@ interface Props {
 const EmailFeedItem:React.FC<Props> = ({arrayUsed, displayTheEmailToRead, selectedId, id, read, urgent, sender, email, subject, message, date, picture}) => {
     const monthArr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
-    const getInitials = () => {
-
-    }
+    const [initials, setinitials] = useState('')
+    useEffect(()=> {
+        let inits= '';
+        if(picture === ''){
+            let nameArr = sender.split(" ")
+            console.log(nameArr)
+            for(let i=0; i<nameArr.length; i++){
+                inits += nameArr[i][0]
+            }
+        }
+        setinitials(inits)
+    })
 
     return (
         <div className={`emailFeedItem ${selectedId ===id && 'selectedEmail'}`} onClick={()=>(displayTheEmailToRead(arrayUsed, id))}>
             <div className="emailFeedItem__right">
-                {picture? <img src={picture} alt="" />: <div>{}</div> }
+                {picture? <img src={picture} alt="" />: <div className='initials'>{initials}</div> }
             </div>
             <div className="emailFeedItem__left">
                 <div className="emailFeedItem__left-line1">

@@ -1,11 +1,3 @@
-// {
-    // "compilerOptions": {
-    //     "jsx": "react",
-    //     "target": "esnext",
-    //     "watch": true,
-    //     "allowSyntheticDefaultImports": true
-    // }
-// }
 {
     "compilerOptions": {
         "noEmit": true,
@@ -36,6 +28,6 @@
         "removeComments": true,
         "sourceMap": true
     },
-    "include": ["src/assets"],
+    // "include": ["src/assets/icons"],
     "exclude": ["node_modules"]
 }

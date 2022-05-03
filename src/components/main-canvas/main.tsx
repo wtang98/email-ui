@@ -27,10 +27,10 @@ const Main: React.FC = () => {
     const [originalArray, setOriginalArray] = useState(inboxArray)
     const [originalTrashArray, setOriginalTrashArray] = useState(trashArray)
     const [orignalUrgentArray, setOrignalUrgentArray] = useState(originalArray)
-    const [originalUrgentTrashArray, setOriginalUrgentTrashArray] = useState(originalTrashArray)
+    const [originalUrgentTrashArray, setOriginalUrgentTrashArray] = useState(trashArray)
 
     const [checked, setChecked] = useState(false)
-    const [displayEmailMessage, setdisplayEmailMessage] = useState(undefined)
+    const [displayEmailMessage, setdisplayEmailMessage] = useState(originalArray[0])
     const [selectedId, setSelectedId] = useState(0)
 
     const showInbox = () => {
@@ -59,8 +59,10 @@ const Main: React.FC = () => {
         });
         if(isInbox === true){
             setOriginalArray(sorted)
+            displayTheEmailToRead(originalArray, originalArray[0].id)
         }else{
             setOriginalTrashArray(sorted)
+            displayTheEmailToRead(originalTrashArray, originalTrashArray[0].id)
         }
     }
     useEffect(()=> {
@@ -76,8 +78,10 @@ const Main: React.FC = () => {
         });
         if(isInbox === true){
             setOriginalArray(sorted)
+            displayTheEmailToRead(originalArray, originalArray[0].id)
         }else{
             setOriginalTrashArray(sorted)
+            displayTheEmailToRead(originalTrashArray, originalTrashArray[0].id)
         }
     }
     
@@ -104,21 +108,16 @@ const Main: React.FC = () => {
         let sortedNormal = copyNormal.sort((a:dataObj, b:dataObj) => {
             return Number(new Date(b.date)) - Number(new Date(a.date));
         });
-        setdisplayEmailMessage(sortedNormal[0])
+        displayTheEmailToRead(sortedNormal, sortedNormal[0].id)
         setSelectedId(sortedNormal[0].id)
     },[])
-
+    
     const displayTheEmailToRead = (arrayUsed:Array<dataObj>, idNo:number) => {
         const copyArr = [...arrayUsed]
         for(let i=0; i<copyArr.length; i++){
             if(copyArr[i].id == idNo){
                 setdisplayEmailMessage(copyArr[i])
                 copyArr[i].read = true;
-                if(showingInbox === true){
-                    setOriginalArray(copyArr)
-                }else{
-                    setOriginalTrashArray(copyArr)
-                }
                 setSelectedId(idNo)
             }
         }
