@@ -63,14 +63,6 @@ describe('Check sidenav buttons works', ()=> {
     })
 })
 
-describe('Removes the Unread styling when it has been read', ()=> {
-    it('removes the unread styling', ()=> {
-        cy.visit('http://localhost:3000/')
-        cy.get('[data-cy = trashSelector]').click()
-        cy.get('[data-cy = trashSelector]').should('have.css', 'background-color', 'rgba(186, 232, 232, 0.37)')
-    })
-})
-
 describe('Filtermenu tests', ()=> {
     it('open and closes filtermenu', ()=> {
         cy.visit('http://localhost:3000/')
@@ -96,6 +88,32 @@ describe('Filtermenu tests', ()=> {
         cy.get('[data-cy = emailFeedItem-11]').should('exist')
         cy.get('[data-cy = emailFeedItem-12]').should('exist')
     })
+    it('urgent filter updates sideNav counter', ()=> {
+        cy.visit('http://localhost:3000/')
+        cy.get('[data-cy = filterMenuButton]').click()
+        cy.get('[data-cy = urgentFilter]').click()
+        cy.get('[data-cy = inboxCounter').should('have.text', '3')
+        cy.get('[data-cy = trashCounter').should('have.text', '2')
+    })
+    it('When urgent and sort shows the oldest email that has an urgent tag', ()=> {
+        cy.visit('http://localhost:3000/')
+        cy.get('[data-cy = filterMenuButton]').click()
+        cy.get('[data-cy = urgentFilter]').click()
+        cy.get('[data-cy = sortBy]').select('2')
+        cy.get('[data-cy = emailContent-4]').should('exist')
+    })
+    it('shows the oldest email when you sort by oldest', ()=> {
+        cy.visit('http://localhost:3000/')
+        cy.get('[data-cy = filterMenuButton]').click()
+        cy.get('[data-cy = sortBy]').select('2')
+        cy.get('[data-cy = emailContent-5]').should('exist')
+    })
+    it('shows thevlatest when sorting by more recent', ()=> {
+        cy.visit('http://localhost:3000/')
+        cy.get('[data-cy = filterMenuButton]').click()
+        cy.get('[data-cy = sortBy]').select('1')
+        cy.get('[data-cy = emailContent-6]').should('exist')
+    })
 })
 
 describe('Checks the inbox and Trashcounter update with delete and restore buttons', ()=> {
@@ -114,12 +132,17 @@ describe('Checks the inbox and Trashcounter update with delete and restore butto
     })
 })
 
-describe('Checks if the next email item is shown when the current email the user is looking at is deleted', ()=> {
+describe('Checks if the next email item is shown when the current email the user is looking at is deleted/ restored', ()=> {
     it('moves to next email on deletion', ()=> {
         cy.visit('http://localhost:3000/')
-        cy.get('[data-cy = emailFeedItem-6]').click()
         cy.get('[data-cy = deleteButton]').click()
         cy.get('[data-cy = emailFeedItem-2').should('exist')
+    })
+    it('moves to next email on restore', ()=> {
+        cy.visit('http://localhost:3000/')
+        cy.get('[data-cy = trashSelector]').click()
+        cy.get('[data-cy = restoreButton]').click()
+        cy.get('[data-cy = emailFeedItem-9').should('exist')
     })
 })
 

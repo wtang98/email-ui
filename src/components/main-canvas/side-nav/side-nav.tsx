@@ -18,13 +18,13 @@ type dataObj= {
 
 interface Props {
     showingInbox: boolean;
-    originalArray: Array<dataObj>;
-    originalTrashArray: Array<dataObj>;
+    orignalUrgentArray: Array<dataObj>;
+    originalUrgentTrashArray: Array<dataObj>;
     showInbox: () => void;
     showTrash: () => void;
 }
 
-const SideNav: React.FC<Props> = ({showingInbox, originalArray, originalTrashArray, showInbox, showTrash}) => {
+const SideNav: React.FC<Props> = ({showingInbox, originalUrgentTrashArray, orignalUrgentArray, showInbox, showTrash}) => {
 
     return (
         <div className='sideNav'>
@@ -35,7 +35,7 @@ const SideNav: React.FC<Props> = ({showingInbox, originalArray, originalTrashArr
                         <p className={`${showingInbox  ? 'selectedP' : ''}`}>Inbox</p>
                     </div>
                     <div className='sideNav__contents-inbox-items' data-cy='inboxCounter'>
-                        {originalArray.length}
+                        {orignalUrgentArray.length}
                     </div>
                 </div>
                 
@@ -45,7 +45,7 @@ const SideNav: React.FC<Props> = ({showingInbox, originalArray, originalTrashArr
                         <p className={`${showingInbox  ? '' : 'selectedP'}`}>Trash</p>
                     </div>
                     <div className='sideNav__contents-trash-items' data-cy='trashCounter'>
-                        {originalTrashArray.length}
+                        {originalUrgentTrashArray.length}
                     </div>
                 </div>
             </div>

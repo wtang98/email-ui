@@ -214,7 +214,7 @@ const Main: React.FC = () => {
     return (
         <div className='main'>
             <div className="main__sideNav">
-                <SideNav showingInbox={showingInbox} originalArray={originalArray} originalTrashArray={originalTrashArray} showInbox={showInbox} showTrash={showTrash}/>
+                <SideNav showingInbox={showingInbox} orignalUrgentArray={orignalUrgentArray} originalUrgentTrashArray={originalUrgentTrashArray} showInbox={showInbox} showTrash={showTrash}/>
             </div>
             <div className="main__emailFeed">
                 <EmailFeed orignalUrgentArray={orignalUrgentArray} originalUrgentTrashArray={originalUrgentTrashArray} showingInbox={showingInbox} selectedId={selectedId} handleSortByDate={handleSortByDate} filterUrgentMail={filterUrgentMail} displayTheEmailToRead={displayTheEmailToRead}/>

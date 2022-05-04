@@ -12,9 +12,9 @@ const FilterMenu = ({filterUrgentMail, handleSortByDate}) => {
                 </div>
                 <div className="filterMenu__container-date">
                     <p>Sort By</p>
-                    <select name="" id="" defaultValue={'1'} onChange={handleSortByDate}>
-                        <option value="1">Most Recent</option>
-                        <option value="2">Oldest</option>
+                    <select name="" id="" defaultValue={'1'} onChange={handleSortByDate} data-cy='sortBy'>
+                        <option value="1" data-cy='sortByNewest'>Most Recent</option>
+                        <option value="2" data-cy='sortByOldest'>Oldest</option>
                     </select>
                 </div>
             </div>
