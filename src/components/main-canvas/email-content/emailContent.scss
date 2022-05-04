@@ -1,7 +1,7 @@
 @import '../../../assets/assets.scss';
 
 .emailContent{
-    padding: 73px 88px;
+    padding: 68px 88px 0 88px;
     overflow-y: scroll;
     &__container{
         height: 75vh;
@@ -59,12 +59,12 @@
             }
         }
         &-message{
-            overflow: auto;
+            overflow: scroll;
             transform: translateY(-4vh);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 30vh;
+            height: 45vh;
             &-subject{
                 margin-bottom: 24px;
                 font-size: 24px;
@@ -72,6 +72,7 @@
                 color: $dark-blue;
             }
             &-main{
+                overflow: scroll;
                 color: $light-blue;
             }
         }

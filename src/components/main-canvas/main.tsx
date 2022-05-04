@@ -36,10 +36,12 @@ const Main: React.FC = () => {
     const showInbox = () => {
         setShowingInbox(true)
         setdisplayEmailMessage(orignalUrgentArray[0])
+        setSelectedId(orignalUrgentArray[0].id)
     }
     const showTrash = () => {
         setShowingInbox(false)
         setdisplayEmailMessage(originalUrgentTrashArray[0])
+        setSelectedId(originalUrgentTrashArray[0].id)
     }
 
     const handleSortByDate = (e) => {

@@ -8,7 +8,7 @@ const FilterMenu = ({filterUrgentMail, handleSortByDate}) => {
             <div className="filterMenu__container">
                 <div className="filterMenu__container-urgent">
                     <p>Urgent?</p>
-                    <input type="checkbox" name="urgent" id=""  onChange={filterUrgentMail}/>
+                    <input type="checkbox" name="urgent" id=""  onChange={filterUrgentMail} data-cy='urgentFilter'/>
                 </div>
                 <div className="filterMenu__container-date">
                     <p>Sort By</p>
