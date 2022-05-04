@@ -146,4 +146,18 @@ describe('Checks if the next email item is shown when the current email the user
     })
 })
 
+describe('Checks the next and previous buttons', ()=> {
+    it('moves to the next email when clicked', ()=> {
+        cy.visit('http://localhost:3000/')
+        cy.get('[data-cy = right]').click()
+        cy.get('[data-cy = emailContent-2]').should('exist')
+    })
+    it('moves to the last email when you go back from the first email', ()=> {
+        cy.visit('http://localhost:3000/')
+        cy.get('[data-cy = left]').click()
+        cy.get('[data-cy = emailFeedItem-5').should('exist')
+    })
+    
+})
+
 

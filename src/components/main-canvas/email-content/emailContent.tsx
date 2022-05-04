@@ -72,8 +72,8 @@ const EmailContent: React.FC<Props> = ({showingInbox, displayEmailMessage, delet
                     </div>
                 </div>
                 <div className="emailContent__container-cycleBar">
-                    <img src={Left} alt="" onClick={goBack} />
-                    <img src={Right} alt="" onClick={goForward}/>
+                    <img src={Left} alt="" onClick={goBack} data-cy='left'/>
+                    <img src={Right} alt="" onClick={goForward} data-cy='right'/>
                 </div>
             </div>
         </div>
