@@ -2,6 +2,8 @@
 
 .sideNav{
     max-width: 316px;
+    width: 16.46vw;
+    min-width: 270px;
     &__contents{
         width: 100%;
         display: flex;
@@ -44,18 +46,22 @@
 }
 .selected{
     color: $dark-blue;
-    // background-color: #bae8e85e;
     background-color: rgba(186, 232, 232, 0.37);
-    width: 13.4375vw;
 }
 .selectedP{
     color: $dark-blue;
 }
 
-@media only screen and (max-width: 747px) {
+@media only screen and (max-width: 1187px) {
     .sideNav{
+        max-width: 50px;
+        min-width: 50px;
+        width: 50px;
         &__contents{
+            width: 50px;
             &-inbox, &-trash{
+                width: 50px;
+                min-width: 50px;
                 &-left{
                     display: flex;
                     align-items: center;
