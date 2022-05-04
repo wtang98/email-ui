@@ -58,14 +58,20 @@
         min-width: 50px;
         width: 50px;
         &__contents{
-            width: 50px;
+            width: 49px;
             &-inbox, &-trash{
-                width: 50px;
-                min-width: 50px;
+                width: 49px;
+                min-width: 49px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
                 &-left{
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    .email{
+                        transform: translateX(-12.5px);
+                    }
+                    .trash{
+                        transform: translateX(-12.5px);
+                    }
                     &>p{
                         display: none;
                     }

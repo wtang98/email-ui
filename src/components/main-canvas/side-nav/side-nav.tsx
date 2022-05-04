@@ -38,7 +38,6 @@ const SideNav: React.FC<Props> = ({showingInbox, originalUrgentTrashArray, orign
                         {orignalUrgentArray.length}
                     </div>
                 </div>
-                
                 <div className={`sideNav__contents-trash ${showingInbox  ? '' : 'selected'}`} onClick={showTrash} data-cy='trashSelector'>
                     <div className='sideNav__contents-trash-left'>
                         <img className='trash' src={Trash} alt='' />
