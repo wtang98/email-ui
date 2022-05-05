@@ -66,12 +66,7 @@
                 align-items: center;
                 justify-content: center;
                 &-left{
-                    .email{
-                        transform: translateX(-12.5px);
-                    }
-                    .trash{
-                        transform: translateX(-12.5px);
-                    }
+                    margin: 0;
                     &>p{
                         display: none;
                     }
