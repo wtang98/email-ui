@@ -6,12 +6,27 @@
         border-right: 1px solid #E8F1F1;
     }
     &__emailFeed{
-        width: 22.19vw;
-        min-width: 375px;
+        width: 20vw;
+        min-width: 350px;
+        max-width: 425px;
     }
     &__emailContent{
         border-left: 1px solid #E8F1F1;
         max-width: 61.35vw;
         overflow: scroll;
+    }
+}
+
+
+@media only screen and (max-width: 1187px) {
+    .main{
+        &__sideNav{
+        }
+        &__emailFeed{
+            width: 19vw;
+            min-width: 300px;
+        }
+        &__emailContent{
+        }
     }
 }

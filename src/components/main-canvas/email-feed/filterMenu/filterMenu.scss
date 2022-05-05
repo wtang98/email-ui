@@ -1,9 +1,10 @@
 @import '../../../../assets/assets.scss';
 
 .filterMenu{
+    z-index: 1;
     position: fixed;
     top: 131.5px;
-    left: 32.1vw;
+    left: 500px;
     background-color: #FFFFFF;
     border: 1px solid #E8F1F1;
     width: 110px;
@@ -18,15 +19,46 @@
         flex-direction: column;
         &-urgent{
             &>p{
+                margin-bottom: 5px;
+                color: $dark-blue;
                 font-weight: 600;
                 font-size: 16px;
             }
         }
         &-date{
             &>p{
+                margin-bottom: 5px;
+                color: $dark-blue;
                 font-weight: 600;
                 font-size: 16px;
-                
+            }
+            &>select{
+                color: $feint-text;
+                &>option{
+                    color: $feint-text;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 1187px) {
+    .filterMenu{
+        position: fixed;
+        top: 131.5px;
+        left: 230px;
+        &__container{
+            &-urgent{
+                &>p{
+                }
+            }
+            &-date{
+                &>p{
+                }
+                &>select{
+                    &>option{
+                    }
+                }
             }
         }
     }
