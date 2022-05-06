@@ -73,8 +73,10 @@ const Main: React.FC = () => {
     useEffect(()=> {
         if(showingInbox===true){
             setdisplayEmailMessage(orignalUrgentArray[0])
+            displayTheEmailToRead(originalArray, originalArray[0].id)
         }else{
             setdisplayEmailMessage(originalUrgentTrashArray[0])
+            displayTheEmailToRead(originalUrgentTrashArray, originalUrgentTrashArray[0].id)
         }
     },[originalArray, originalTrashArray, orignalUrgentArray, originalUrgentTrashArray])
 
@@ -85,7 +87,6 @@ const Main: React.FC = () => {
         });
         if(isInbox === true){
             setOriginalArray(sorted)
-            console.log(displayEmailMessage)
         }else{
             setOriginalTrashArray(sorted)
         }
